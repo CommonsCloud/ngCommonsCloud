@@ -1,0 +1,104 @@
+<div>
+	<div class="card">
+		<h1>Choose Your Application</h1>
+		<ul>
+			<li class="template" ng-repeat="app in applications">
+				<span class="key"><strong>Name</strong></span>: {{ app.name }}
+				<br />
+				<span class="key"><strong>Id</strong></span>: {{ app.id }}
+				<br />
+				<button ng-click="getApplication(app.id)">
+					Get Application
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="card" ng-if="application">
+		<h1>Application: {{ application.response.name }}</h1>
+		<ul>
+			<li ng-repeat="(key, value) in application.response">
+				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
+			</li>
+		</ul>
+		<button style="margin-bottom: 5px;" ng-click="getTemplates(application.response.id)">
+			Get Templates
+		</button>		
+	</div>
+	<div class="card" ng-if="templates">
+		<h1>Templates</h1>
+		<ul>
+			<li class="template" ng-repeat="item in templates">
+				<span class="key"><strong>Storage</strong></span>: {{ item.storage }}
+				<br />
+				<span class="key"><strong>Name</strong></span>: {{ item.name }}
+				<br />
+				<span class="key"><strong>Id</strong></span>: {{ item.id }}
+				<br />
+				<button ng-click="getTemplate(item.id)">
+					Get Template
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="card" ng-if="template">
+		<h1>Template {{ template.id }}</h1>
+		<ul>
+			<li ng-repeat="(key, value) in template">
+				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
+			</li>
+		</ul>
+		<button style="margin-bottom: 5px;" ng-click="getFeatures(template.storage)">
+			Get Features
+		</button>
+	</div>
+	<div class="card" ng-if="features">
+		<h1>Features</h1>
+		<ul>
+			<li class="template" ng-repeat="item in features">
+				<span class="key"><strong>Name</strong></span>: {{ item.name }}
+				<br />
+				<span class="key"><strong>Id</strong></span>: {{ item.id }}
+				<br />
+				<button ng-click="getFeature(template.storage, item.id)">
+					Get Feature
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="card" ng-if="feature">
+		<h1>Feature {{ feature.id }}</h1>
+		<ul>
+			<li ng-repeat="(key, value) in feature">
+				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
+			</li>
+		</ul>
+		<button style="margin-bottom: 5px;" ng-click="getFields(template.id)">
+			Get Fields
+		</button>
+	</div>
+	<div class="card" ng-if="fields">
+		<h1>Fields</h1>
+		<ul>
+			<li class="template" ng-repeat="item in fields">
+				<span class="key"><strong>Name</strong></span>: {{ item.label }}
+				<br />
+				<span class="key"><strong>Id</strong></span>: {{ item.id }}
+				<br />
+				<button ng-click="getField(template.id, item.id)">
+					Get Field
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="card" ng-if="field">
+		<h1>Field {{ feature.id }}</h1>
+		<ul>
+			<li ng-repeat="(key, value) in feature">
+				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
+			</li>
+		</ul>
+<!-- 		<button style="margin-bottom: 5px;" ng-click="getFields(template.id)">
+			Get Fields
+		</button> -->
+	</div>
+</div>
