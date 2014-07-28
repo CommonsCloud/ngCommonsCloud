@@ -1,4 +1,6 @@
 <div>
+	<button class="btn btn-primary" style="margin:20px" ng-click="interceptorTest()">Eagle III Test</button>
+	<p>
 	<div class="card">
 		<h1>Choose Your Application</h1>
 		<ul>
@@ -7,7 +9,7 @@
 				<br />
 				<span class="key"><strong>Id</strong></span>: {{ app.id }}
 				<br />
-				<button ng-click="getApplication(app.id)">
+				<button class="btn btn-primary" ng-click="getApplication(app.id)">
 					Get Application
 				</button>
 			</li>
@@ -20,7 +22,7 @@
 				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
 			</li>
 		</ul>
-		<button style="margin-bottom: 5px;" ng-click="getTemplates(application.response.id)">
+		<button class="btn btn-primary" style="margin-bottom: 5px;" ng-click="getTemplates(application.response.id)">
 			Get Templates
 		</button>		
 	</div>
@@ -34,7 +36,7 @@
 				<br />
 				<span class="key"><strong>Id</strong></span>: {{ item.id }}
 				<br />
-				<button ng-click="getTemplate(item.id)">
+				<button class="btn btn-primary" ng-click="getTemplate(item.id)">
 					Get Template
 				</button>
 			</li>
@@ -47,7 +49,7 @@
 				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
 			</li>
 		</ul>
-		<button style="margin-bottom: 5px;" ng-click="getFeatures(template.storage)">
+		<button class="btn btn-primary" style="margin-bottom: 5px;" ng-click="getFeatures(template.storage)">
 			Get Features
 		</button>
 	</div>
@@ -59,7 +61,7 @@
 				<br />
 				<span class="key"><strong>Id</strong></span>: {{ item.id }}
 				<br />
-				<button ng-click="getFeature(template.storage, item.id)">
+				<button class="btn btn-primary" ng-click="getFeature(template.storage, item.id)">
 					Get Feature
 				</button>
 			</li>
@@ -72,7 +74,7 @@
 				<span class="key"><strong>{{ key }}</strong></span>: {{ value }}
 			</li>
 		</ul>
-		<button style="margin-bottom: 5px;" ng-click="getFields(template.id)">
+		<button class="btn btn-primary" style="margin-bottom: 5px;" ng-click="getFields(template.id)">
 			Get Fields
 		</button>
 	</div>
@@ -84,7 +86,7 @@
 				<br />
 				<span class="key"><strong>Id</strong></span>: {{ item.id }}
 				<br />
-				<button ng-click="getField(template.id, item.id)">
+				<button class="btn btn-primary" ng-click="getField(template.id, item.id)">
 					Get Field
 				</button>
 			</li>

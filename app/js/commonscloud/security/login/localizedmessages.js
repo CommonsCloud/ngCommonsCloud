@@ -1,26 +1,19 @@
 'use strict';
 
-angular.module('services.localizedMessages', [])
+angular.module('services.localizedMessages', ['security.messages']).factory('localizedMessages', ['$interpolate', 'I18N.MESSAGES', function ($interpolate, i18nmessages) {
 
-.factory('localizedMessages', function(){
-	return {
-		get: function(authReason){
-			var response;
+  var handleNotFound = function (msg, msgKey) {
+    return msg || '?' + msgKey + '?';
+  };
 
-			switch(authReason){
-				case 'login.reason.notAuthorized':
-					response = 'You must be an authorized user to access this page.';
-					return response;
-				case 'login.reason.notAuthenticated':
-					response = 'You must log in to access this page.';
-					return response;
-				case 'login.reason.invalidCredentials':
-					response = 'The email or password you entered is not valid. Please try again.';
-					return response;
-				case 'login.reason.serverError':
-					response = 'There was an error with the server. Please try again.';
-					return response;
-			}
-		}
-	};
-});
+  return {
+    get : function (msgKey, interpolateParams) {
+      var msg =  i18nmessages[msgKey];
+      if (msg) {
+        return $interpolate(msg)(interpolateParams);
+      } else {
+        return handleNotFound(msg, msgKey);
+      }
+    }
+  };
+}]);

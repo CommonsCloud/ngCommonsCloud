@@ -47,6 +47,12 @@ angular.module('myApp.controllers', [])
 
 	var id;
 
+	$scope.interceptorTest = function(){
+		Template.get({templateId:134}, function(data){
+			$log.log('Eagle data', data);
+		});
+	};
+
 	//click functions to get the app data
 	$scope.getApplication = function(appId){
 		Application.get({id:appId}, function(data){

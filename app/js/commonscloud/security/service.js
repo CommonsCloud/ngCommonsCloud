@@ -17,10 +17,18 @@ angular.module('security.service', [
 	//login form modal stuff
 	var loginDialog = null;
 	function openLoginDialog(){
-		if(!loginDialog){
-			loginDialog = $modal.modal();
-			loginDialog.open('security/login/form.html', 'LoginFormController').then(onLoginDialogClose);
-		}
+		$modal.open({
+			templateUrl: 'js/commonscloud/security/login/form.html',
+			controller: 'LoginFormController'
+		});
+		// if(!loginDialog){
+		// 	loginDialog = $modal;
+		// 	loginDialog.open({
+		// 		templateUrl: 'js/commonscloud/security/login/form.html',
+		// 		controller: 'LoginFormController',
+		// 		backdrop: true
+		// 	}).then(onLoginDialogClose);
+		// }
 	}
 	function closeLoginDialog(success){
 		if(loginDialog){

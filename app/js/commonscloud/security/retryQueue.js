@@ -14,6 +14,7 @@ angular.module('security.retryQueue', [])
 		},
 		push: function(retryItem){
 			retryQueue.push(retryItem);
+			$log.log('onItemAddedCallbacks', service.onItemAddedCallbacks);
 			//Call all the onItemAdded callbacks
 			angular.forEach(service.onItemAddedCallbacks, function(cb){
 				try{
@@ -37,7 +38,7 @@ angular.module('security.retryQueue', [])
 				retry: function(){
 					//Wrap the result of the retryFn into a promise if it not already
 					$q.when(retryFn()).then(function(value){
-						//If it was successful then reslve our deferred object
+						//If it was successful then resolve our deferred object
 						deferred.resolve(value);
 					}, function(value){
 						//Otherwise, reject it

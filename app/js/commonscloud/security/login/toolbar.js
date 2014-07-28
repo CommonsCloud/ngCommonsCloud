@@ -6,7 +6,7 @@ angular.module('security.login.toolbar', [])
 
 .directive('loginToolbar', ['security', function(security){
 	var directive = {
-		templateUrl: 'security/login/toolbar.html',
+		templateUrl: 'js/commonscloud/security/login/toolbar.html',
 		restrict: 'E',
 		replace: true,
 		scope: true,
